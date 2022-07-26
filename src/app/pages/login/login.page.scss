@@ -1,0 +1,152 @@
+// .nombre{
+//     //font-family: 'Inter';
+    
+// }
+
+// // .padre {
+// //     padding: 25px; 
+// //     margin: 25px; 
+// //     //margin-top: 125px;
+// //     border-radius: 5px; 
+// //     border: 1px solid #3880ff; 
+// //     position: relative;
+// //     //transform: translateY(25%)
+// // }
+
+// ion-title{
+//     background: none;
+// }
+
+// ion-label{
+//     background: none;
+// }
+
+// ion-input{
+//     //background: none;
+//     background: none;
+// }
+
+// ion-item{
+//     background: none;
+// }
+
+#padre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    #imgD{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        ion-img{
+            height: 50%;
+            width: 50%;
+        }
+    }
+
+    .labeld{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        ion-tab-button{
+            //border-style: solid; 
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #3880ff;
+            color: white;
+            ion-label{
+                font-size: large;
+            }
+        }
+
+        ion-item{
+            border-bottom-style: solid; 
+            border-color: #3880ff;
+        }
+    }
+
+    ion-row{
+        padding: 30px;
+    }
+}
+
+// .hijo {
+//     //: red;
+//     //width: 120px;
+//     //Esto no est bien MURILLO
+//     border-radius: 5px; 
+//     border: 1px solid #3880ff;
+//     padding: 25px;
+//     box-shadow: 5px 5px 10px #3880ff;
+
+//     font-style: normal;
+//     font-weight: 400;
+//     font-size: 25px;
+//     line-height: 30px;
+//     text-align: center;
+//     color: #0BA7FF;
+// }
+
+// @media (min-width: 1000px) {
+//     .hijo {
+//         width: 50%;
+//         float: center;
+//         margin-right: 1.69492%;
+//     }
+// }
+
+// @media (min-width: 700px) {
+//     .hijo {
+//         width: 75%;
+//         float: left;
+//         margin-right: 1.69492%;
+//     }
+// }
+
+// @media (max-width: 300px) {
+//     .hijo {
+//         width: 75%;
+//         float: left;
+//         margin-right: 1.69492%;
+//         display: flex;
+//         font-size: 10px;
+//         font-weight: 100;
+//     }
+
+//     ion-label{
+//         font-size: 10px;
+//     }
+
+//     ::placeholder{
+//         font-size: 10px;
+//     }
+// }
+
+// @media (min-height: 800px) {
+//     .hijo {
+//         height: 75%;
+//         float: left;
+//         margin-right: 1.69492%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//     }
+// }
+
+// // @media screen and (max-width: 750px) {
+// //     .padre {
+// //         margin-top: 125px;
+// //     }
+// // }
+

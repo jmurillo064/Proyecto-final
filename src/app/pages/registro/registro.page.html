@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registrarse</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" icon="arrow-back-outline" color="light"></ion-back-button></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="padre">
+    <ion-item>
+      <ion-label position="floating">Ingrese usuario</ion-label>
+      <ion-input [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ingrese nombres</ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ingrese apellidos</ion-label>
+      <ion-input [(ngModel)]="apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Ingrese contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Repetir contraseña</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Ingrese Celular</ion-label>
+      <ion-input type="text" [(ngModel)]="celular"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Ingrese Correo</ion-label>
+      <ion-input type="text" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Ingrese País</ion-label>
+      <ion-input type="text" [(ngModel)]="pais"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" >Ingrese Ciudad</ion-label>
+      <ion-input type="text" [(ngModel)]="ciudad"></ion-input>
+    </ion-item>
+    <ion-button shape="round"  size="full" color="primary" (click)="crearUsuario()">Registro</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,74 @@
+
+<!-- <ion-content padding center text-center color="light">
+    <div class="padre">
+      <div  class="hijo">
+            <ion-col size="12">
+            <div>
+              <ion-title class="nombre">APP-ROYA</ion-title>
+            </div>
+            <div>
+              <ion-item>
+                <ion-label position="floating" > <ion-icon name="person" color="primary"></ion-icon> Ingrese Usuario</ion-label>
+                <ion-input [(ngModel)]="usuario" placeholder="Ingrese Usuario" type="user"></ion-input> 
+              </ion-item>
+              <ion-item style="margin-top: 5%;">
+                <ion-label position="floating" > <ion-icon name="key" color="primary"></ion-icon> Ingrese Contraseña</ion-label>
+                <ion-input [(ngModel)]="pass" placeholder="Ingrese Contraseña" type="password"></ion-input> 
+              </ion-item>
+            </div>
+            <div style="margin-top: 25%; margin-bottom: 10%">
+              <ion-button  shape="round"  size="full"  color="primary" (click)="Inilogin()">Login</ion-button>
+            </div>
+            <div style="margin-bottom: 10%;">
+              <ion-button shape="round"  size="full" color="light" Href="/registro" >Registro</ion-button>
+            </div>
+            
+              <div>
+                <ion-label color="primary">¿Olvidaste tu contraseña?</ion-label>
+              </div>
+            </ion-col>
+      </div>
+    </div>
+</ion-content> -->
+
+<ion-content padding>
+  <div id="padre">
+    <div>
+      <ion-grid>
+        <ion-row>
+          <div id="imgD">
+            <ion-img src="../../../assets/icon/ROYA APP.png" alt=""></ion-img>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="labeld">
+            <form>
+              <div>
+                <ion-item>
+                  <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
+                  <ion-input [(ngModel)]="usuario" type="text" placeholder="Ingrese usuario" name="user"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
+                  <ion-input [(ngModel)]="pass" type="password" placeholder="Ingrese Contraseña" name="password"></ion-input>
+                </ion-item>
+              </div>
+                <div class="labeld">
+                  <ion-tab-button (click)="Inilogin()">
+                    <ion-label>Ingresar</ion-label>
+                  </ion-tab-button>
+                </div>
+            </form>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="labeld">
+            <ion-label>Si no tienes una cuenta <br>
+              <a href="registro">Registratre aquí</a>
+            </ion-label>
+        </div>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

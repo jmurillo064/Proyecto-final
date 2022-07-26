@@ -1,0 +1,105 @@
+<ion-content center>
+      <ion-content>
+        <body> 
+          <ion-app>
+            <ion-menu content-id="content">
+              <ion-header>
+                <ion-toolbar mode="ios" color="medium">
+                  <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                  </ion-buttons>  
+                  <ion-title>Menu</ion-title>
+                </ion-toolbar>
+              </ion-header>
+              <ion-content>
+                <ion-list>
+                  <ion-item href="procesamiento"> <ion-icon name="images-outline"></ion-icon> Procesar datos</ion-item>
+                  <ion-item> <ion-icon name="bar-chart-outline"></ion-icon> Reportes</ion-item>
+                  <ion-item> <ion-icon name="people-outline"></ion-icon> Administrar usuarios </ion-item>
+                  <ion-item href="ayuda"> <ion-icon name="information-circle-outline"></ion-icon> Ayuda </ion-item>
+                  <ion-item> <ion-icon name="arrow-undo-circle-outline"></ion-icon> Salir</ion-item>
+                </ion-list>
+              </ion-content>
+            </ion-menu>
+            <div class="ion-page" id="content">
+              <ion-header>
+                <ion-toolbar mode="ios" color="primary">
+                  <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                  </ion-buttons>      
+                    <ion-title>Home</ion-title>
+                  <ion-buttons slot="end">
+                    <ion-button>
+                      <ion-icon name="arrow-forward-circle-outline" slot="icon-only"></ion-icon>
+                    </ion-button>
+                  </ion-buttons>            
+                </ion-toolbar>
+              </ion-header>
+              <ion-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
+                      <ion-card >
+                        <ion-card-header>
+                          <ion-card-title>Hoja de café sin Roya</ion-card-title>
+                        </ion-card-header>
+                        <img src=".\assets\icon\sana.jpg" alt="">
+                        <ion-card-content>
+                          Keep close to Nature's heart... and break clear away, once in awhile,
+                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
+                      <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Hoja de café con Roya</ion-card-title>
+                        </ion-card-header>
+                        <img src=".\assets\icon\infectada.jpg" alt="">
+                        <ion-card-content>
+                          Keep close to Nature's heart... and break clear away, once in awhile,
+                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
+                      <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Card Title</ion-card-title>
+                        </ion-card-header>
+                        <img src=".\assets\icon\infectada.jpg" alt="">
+                        <ion-card-content>
+                          Keep close to Nature's heart... and break clear away, once in awhile,
+                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                    <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
+                      <ion-card>
+                        <ion-card-header>
+                          <ion-card-title>Card Title</ion-card-title>
+                        </ion-card-header>
+                        <img src=".\assets\icon\infectada.jpg" alt="">
+                        <ion-card-content>
+                          Keep close to Nature's heart... and break clear away, once in awhile,
+                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+                  <ion-fab-button>
+                    <ion-icon name="settings"></ion-icon>
+                  </ion-fab-button>
+                  <ion-fab-list side="start">
+                    <ion-fab-button href="procesamiento"><ion-icon name="images-outline" color="primary"></ion-icon></ion-fab-button>
+                    <ion-fab-button><ion-icon name="bar-chart-outline" color="primary"></ion-icon></ion-fab-button>
+                  </ion-fab-list>
+                </ion-fab>
+              </ion-content>
+            </div>
+          </ion-app>
+        </body>
+      </ion-content>
+</ion-content>
