@@ -4,6 +4,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AlertController, LoadingController, Platform, ToastController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { RoyaService } from 'src/app/servicios/roya.service';
+import { DatosImagenService } from 'src/app/servicios/datos-imagen.service';
+import { Router } from '@angular/router';
 
 
 
@@ -29,7 +31,9 @@ export class ProcesamientoPage implements OnInit {
     private royaService: RoyaService,
     private loadingCtrl: LoadingController,
     public alertController: AlertController, 
-    public toastController: ToastController
+    public toastController: ToastController,
+    private datosImagenService: DatosImagenService,
+    public router: Router
     ) { }
 
     presentPopover(e: Event) {
@@ -59,9 +63,10 @@ export class ProcesamientoPage implements OnInit {
       source: CameraSource.Prompt
     });
       //this.procesarImg();
+      //this.imgURL = image;
       let im = image['dataUrl'];
       this.nombre = im.replace('data:image/jpeg;base64,','');
-      console.log(this.nombre);
+      //console.log(this.nombre);
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 
@@ -101,16 +106,16 @@ async procesarImg(){
     //enviar imagen y estado
     let resultado = {
       estado: data['Descripción'],
-      imgB64: this.imgURL
+      imgB64: this.nombre
     }
-    //this.imageService.senObjectSource(resultado);
+    this.datosImagenService.senObjectSource(resultado);
 
     if(data['Descripción']==='SANA'){
       color='success';
-      //this.router.navigate(['sana']);
+      this.router.navigate(['resultado']);
     }else{
       color='danger';
-      //this.router.navigate(['enferma']);
+      this.router.navigate(['resultado']);
     }
     this.mensaje('El estado de la imagen es: '+data['Descripción'], color);
   }).catch(error =>{

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Resultado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divImg">
+    <ion-img *ngIf="imgURL" [src]="imgURL" alt="imgURL"></ion-img>
+  </div>
+  <div id="resultado">
+    <ion-item>
+      <ion-label>ESTADO:</ion-label>
+      <ion-note *ngIf="estado == 'SANA'" color="success" slot="end">{{estado}}</ion-note>
+      <ion-note *ngIf="estado == 'ENFERMA'" color="danger" slot="end">{{estado}}</ion-note>
+    </ion-item>
+  </div>
+  <div id="boton">
+    <ion-button (click)="guardar()">GUARDAR</ion-button>
+  </div>
+</ion-content>

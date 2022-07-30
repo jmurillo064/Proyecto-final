@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'administrar-usuarios',
     loadChildren: () => import('./pages/administrar-usuarios/administrar-usuarios.module').then( m => m.AdministrarUsuariosPageModule),
     canActivate: [AutoLoginGuard]
+  },
+  {
+    path: 'resultado',
+    loadChildren: () => import('./pages/resultado/resultado.module').then( m => m.ResultadoPageModule)
   }
 ];
 
