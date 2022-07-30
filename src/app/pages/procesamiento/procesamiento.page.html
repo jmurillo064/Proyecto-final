@@ -1,9 +1,246 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Procesamiento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div id="padre">
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <div class="dc">
+              <img *ngIf="imgURL" [src]="imgURL" alt="imgURL" style="height: 250px; width: 250px;"> <br>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <div class="dc">
+              <ion-button (click)="takePicture()" >Abrir cámara</ion-button> <br>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <div class="dc">
+              <ion-button href="inicio" >Salir</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content> -->
 
-</ion-content>
+
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Procesamiento de datos</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/inicio" icon="arrow-back-outline" color="light"></ion-back-button></ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+    <div >
+      <div style="padding-top: 20px">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="dc">
+                <div>
+                  <ion-card *ngIf="photo" class="img">
+                    <ion-card-content>
+                      <img [src]="photo">
+                    </ion-card-content>
+                  </ion-card>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div id="padre">
+                <div>
+                  <ion-button size="small" (click)="getPicture()">
+                    <ion-icon name="camera" slot="start"></ion-icon>
+                    <ion-label>Subir foto</ion-label>
+                  </ion-button>
+                  <input type="file" *ngIf="isDesktop" #filePicker (change)="onFileChoose($event)"/>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col>
+              <div>
+                <ion-item class="ioi">
+                  <!-- <ion-icon (click)="presentPopover($event)" color="primary" name="information-circle-outline"></ion-icon> -->
+                  <ion-label> Altura de la planta: </ion-label>
+                  <ion-input type="text" placeholder="en centímetros"></ion-input>
+                  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+                    <ng-template>
+                      <ion-content class="ion-padding">Hello World!</ion-content>
+                    </ng-template>
+                  </ion-popover>
+                  
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col>
+              <div>
+                <ion-item class="ioi">
+                  <ion-label>Número de ramas: </ion-label>
+                  <ion-input type="text" placeholder="en enteros"></ion-input>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col >
+              <div>
+                <ion-list>
+                  <ion-radio-group>
+                    <ion-list-header>
+                      <ion-label>Nivel de producción:</ion-label>
+                    </ion-list-header>
+                    <ion-item-group>
+                      <ion-item class="ioi">
+                        <ion-note>0</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>1</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>2</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>3</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>4</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>5</ion-note>
+                        <ion-radio></ion-radio>
+                      </ion-item>
+                    </ion-item-group>
+                  </ion-radio-group>
+                </ion-list>  
+              </div>
+            </ion-col>
+          </ion-row >
+          <ion-row class="ion-row">
+            <ion-col >
+              <div>
+                <ion-list>
+                  <ion-radio-group>
+                    <ion-list-header>
+                      <ion-label>Hay presencia de plagas:</ion-label>
+                    </ion-list-header>
+                    <ion-item-group>
+                        <ion-item class="ioi">
+                          <ion-label></ion-label>
+                          <ion-note>Si</ion-note>
+                          <ion-radio></ion-radio>
+                          <ion-label></ion-label>
+                          <ion-note>No</ion-note>
+                          <ion-radio></ion-radio>
+                          <ion-label></ion-label>
+                        </ion-item>
+                  </ion-item-group>
+                  </ion-radio-group>
+                </ion-list>  
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col >
+              <div>
+                <ion-list>
+                  <ion-radio-group>
+                    <ion-list-header>
+                      <ion-label>Nivel de plagas:</ion-label>
+                    </ion-list-header>
+                    <ion-item-group>
+                      <ion-item class="ioi">
+                        <ion-note>0</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>1</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>2</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>3</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>4</ion-note>
+                        <ion-radio></ion-radio>
+                      </ion-item>
+                  </ion-item-group>
+                  </ion-radio-group>
+                </ion-list>  
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col >
+              <div>
+                <ion-list>
+                  <ion-radio-group>
+                    <ion-list-header>
+                      <ion-label>Nivel de otras enfermedades:</ion-label>
+                    </ion-list-header>
+                    <ion-item-group>
+                      <ion-item class="ioi">
+                        <ion-note>0</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>1</ion-note>
+                        <ion-radio></ion-radio>
+                        <ion-label></ion-label>
+                        <ion-note>2</ion-note>
+                        <ion-radio></ion-radio>
+                      </ion-item>
+                  </ion-item-group>
+                  </ion-radio-group>
+                </ion-list>  
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-row">
+            <ion-col >
+              <div>
+                <ion-item class="ioi">
+                  <ion-label>Producción: </ion-label>
+                  <ion-input type="text" placeholder="en gramos"></ion-input>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col >
+              <div id="padre">
+                <div>
+                  <ion-button size="small" (click)="procesarImg()">
+                    <ion-icon name="barcode-outline" slot="start"></ion-icon>
+                    <ion-label>Procesar Datos</ion-label>
+                  </ion-button>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-content>
+</ion-app>
+
+

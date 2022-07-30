@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>administrarUsuarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div>
+      <ion-card>
+        <ion-grid *ngFor="let item of arrayUsuarios">
+          <ion-card>
+            <ion-row>
+              <ion-col>
+                <ion-label>{{item.nombre}}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label>{{item.apellido}}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label>{{item.usuario}}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-label>{{item.rol['tipoRoles']}}</ion-label>
+              </ion-col>
+              <ion-col>
+                <ion-toggle *ngIf="item.activo==1" checked></ion-toggle>
+                <ion-toggle *ngIf="item.activo!=1" unchecked></ion-toggle>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-grid>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

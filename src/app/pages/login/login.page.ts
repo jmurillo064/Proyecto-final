@@ -40,16 +40,21 @@ Inilogin(){
           this.mensaje("Datos vacíos!!!", "danger");
         }else{
           this.personService.accederlogin(this.usuario, this.pass).then(data =>{
+            //console.log(data);
           if(data['code'] === 404 || data['code']=== 406){
             this.mensaje(data['mensaje'], "warning");
             localStorage.setItem('sesionlogin','false')
           }else{
-            this.mensaje(data['mensaje'], "success");
-            this.usuario= data['usuario'];
-            localStorage.setItem('sesionlogin','true');
-            this.router.navigate(['/inicio/',this.usuario]);
+            if(data['activo'] != 1){
+              this.mensaje("Usuario deshabilitado...", "danger");
+            }else{
+              this.mensaje(data['mensaje'], "success");
+              this.usuario= data['usuario'];
+              localStorage.setItem('sesionlogin', JSON.stringify(data));
+              this.router.navigate(['/inicio']);
+              //console.log(localStorage.getItem('sesionlogin'));
+            }
           }
-        
       }).catch(error =>{
       })
     }

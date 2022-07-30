@@ -1,0 +1,39 @@
+#padre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    }
+
+.dc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.ion-row{
+    padding: 5px;
+    margin: 5px;
+}
+
+.img{
+    border-style: solid;
+    border-color: #3880ff;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    height: 50%; 
+    width: 50%;
+}
+
+.ioi{
+    border-bottom: solid;
+    border-color: #3880ff;
+}

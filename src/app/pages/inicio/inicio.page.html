@@ -5,7 +5,7 @@
             <ion-menu content-id="content">
               <ion-header>
                 <ion-toolbar mode="ios" color="medium">
-                  <ion-buttons slot="start">
+                  <ion-buttons slot="start" style="padding: 20px;">
                     <ion-menu-button></ion-menu-button>
                   </ion-buttons>  
                   <ion-title>Menu</ion-title>
@@ -13,11 +13,12 @@
               </ion-header>
               <ion-content>
                 <ion-list>
-                  <ion-item href="procesamiento"> <ion-icon name="images-outline"></ion-icon> Procesar datos</ion-item>
-                  <ion-item> <ion-icon name="bar-chart-outline"></ion-icon> Reportes</ion-item>
-                  <ion-item> <ion-icon name="people-outline"></ion-icon> Administrar usuarios </ion-item>
-                  <ion-item href="ayuda"> <ion-icon name="information-circle-outline"></ion-icon> Ayuda </ion-item>
-                  <ion-item> <ion-icon name="arrow-undo-circle-outline"></ion-icon> Salir</ion-item>
+                  <ion-item href="procesamiento"> <ion-icon name="images-outline" style="padding: 20px;"></ion-icon>   Procesar datos</ion-item>
+                  <ion-item *ngIf=" datosUsario['rol'] == 'administrador'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Administrador</ion-item>
+                  <ion-item *ngIf=" datosUsario['rol'] == 'usuario'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Usuario</ion-item>
+                  <ion-item href="administrar-usuarios" *ngIf=" datosUsario['rol'] == 'administrador'"> <ion-icon name="people-outline" style="padding: 20px;"></ion-icon>   Administrar usuarios </ion-item>
+                  <ion-item href="ayuda"> <ion-icon name="information-circle-outline" style="padding: 20px;"></ion-icon>   Ayuda </ion-item>
+                  <ion-item (click)="exit()"> <ion-icon name="arrow-undo-circle-outline" style="padding: 20px;"></ion-icon>   Salir</ion-item>
                 </ion-list>
               </ion-content>
             </ion-menu>
@@ -29,7 +30,7 @@
                   </ion-buttons>      
                     <ion-title>Home</ion-title>
                   <ion-buttons slot="end">
-                    <ion-button>
+                    <ion-button (click)="exit()">
                       <ion-icon name="arrow-forward-circle-outline" slot="icon-only"></ion-icon>
                     </ion-button>
                   </ion-buttons>            
@@ -41,48 +42,51 @@
                     <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
                       <ion-card >
                         <ion-card-header>
-                          <ion-card-title>Hoja de café sin Roya</ion-card-title>
+                          <ion-card-title>Hoja de café sana</ion-card-title>
                         </ion-card-header>
                         <img src=".\assets\icon\sana.jpg" alt="">
                         <ion-card-content>
-                          Keep close to Nature's heart... and break clear away, once in awhile,
-                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          Las hojas de la planta de café, al igual que sus frutos, 
+                          cambian de color según la etapa en la que estén. Al comienzo, 
+                          son de color verde claro, pero luego ese tono se oscurece con 
+                          el tiempo.
                         </ion-card-content>
                       </ion-card>
                     </ion-col>
                     <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
                       <ion-card>
                         <ion-card-header>
-                          <ion-card-title>Hoja de café con Roya</ion-card-title>
+                          <ion-card-title>Roya del café</ion-card-title>
                         </ion-card-header>
                         <img src=".\assets\icon\infectada.jpg" alt="">
                         <ion-card-content>
-                          Keep close to Nature's heart... and break clear away, once in awhile,
-                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          <ion-note>Nombre Común: <ion-label>Roya del café</ion-label></ion-note><br>
+                          <ion-note>Nombre Científico: <ion-label style="font-style: italic;">Hemileia vastratix</ion-label></ion-note><br>
+                          <ion-note>Tipo de plaga: <ion-label>Hongo</ion-label></ion-note><br>
+                          <ion-note>Cultivo que ataca: <ion-label>Café</ion-label></ion-note><br>
                         </ion-card-content>
                       </ion-card>
                     </ion-col>
                     <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
                       <ion-card>
                         <ion-card-header>
-                          <ion-card-title>Card Title</ion-card-title>
+                          <ion-card-title>Roya del café</ion-card-title>
                         </ion-card-header>
-                        <img src=".\assets\icon\infectada.jpg" alt="">
+                        <img src=".\assets\icon\C12P2E2.jpg" alt="">
                         <ion-card-content>
-                          Keep close to Nature's heart... and break clear away, once in awhile,
-                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          <ion-note>Dispersión: <ion-label>Endémica donde se produce café</ion-label></ion-note><br>
+                          <ion-note>Órganos que ataca: <ion-label>Superficie foliar (haz y envés de las hojas)</ion-label></ion-note><br>
                         </ion-card-content>
                       </ion-card>
                     </ion-col>
                     <ion-col sizeXs="12" sizeMd="6" sizeLg="6" sizeSm="4">
                       <ion-card>
                         <ion-card-header>
-                          <ion-card-title>Card Title</ion-card-title>
+                          <ion-card-title>Roya del café</ion-card-title>
                         </ion-card-header>
-                        <img src=".\assets\icon\infectada.jpg" alt="">
+                        <img src=".\assets\icon\C2P3E2.jpg" alt="">
                         <ion-card-content>
-                          Keep close to Nature's heart... and break clear away, once in awhile,
-                          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          <ion-note>Síntomas: <ion-label>Lesiones cloróticas inicialmente con decoloración de áreas de la hoja y polvillo amarillo o naranja, ubicado por el haz o envés de la hoja afectada</ion-label></ion-note><br>
                         </ion-card-content>
                       </ion-card>
                     </ion-col>
