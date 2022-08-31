@@ -1,0 +1,7 @@
+{
+    "/predecir":{
+        "target":"http://jmurillo064.pythonanywhere.com",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
