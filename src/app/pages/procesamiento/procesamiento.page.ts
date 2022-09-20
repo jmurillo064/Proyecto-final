@@ -125,26 +125,31 @@ async procesarImg(){
     
       loading.dismiss();
       console.log(data);
-      // let color;
-      // //enviar imagen y estado
-      // let resultado = {
-      //   estado: data['Descripción'],
-      //   imgB64: this.nombre
-      // }
-  //   this.datosImagenService.senObjectSource(resultado);
+    if(data['Code']==200){
+        let color;
+        //enviar imagen y estado
+        let resultado = {
+          estado: data['Descripción'],
+          nivel: data['Nivel'],
+          imgB64: this.nombre
+        }
+      this.datosImagenService.senObjectSource(resultado);
 
-  //   if(data['Descripción']==='SANA'){
-  //     color='success';
-  //     this.router.navigate(['resultado']);
-  //   }else{
-  //     color='danger';
-  //     this.router.navigate(['resultado']);
-  //   }
-  //   this.mensaje('El estado de la imagen es: '+data['Descripción'], color);
-  // }).catch(error =>{
-  //   loading.dismiss();
-  //   this.mensaje("Hubo muchos errores",'warning');
-  //   this.presentAlert(error.message);
+      if(data['Descripción']==='SANA'){
+        color='success';
+        this.router.navigate(['resultado']);
+      }else{
+        color='danger';
+        this.router.navigate(['resultado']);
+      }
+      this.mensaje('El estado de la imagen es: '+data['Descripción'], color);
+    }else{
+      this.mensaje("Hubo muchos errores",'warning');
+    }
+  }).catch(error =>{
+    loading.dismiss();
+    this.mensaje("Hubo muchos errores",'warning');
+    this.presentAlert(error.message);
     });
   }
 }

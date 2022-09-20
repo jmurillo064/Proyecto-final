@@ -32,6 +32,29 @@ export class PersonaService {
     }) 
   }
 
+  borrarUsuariosLógico(id: any){
+    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id;
+      return new Promise((resolve, reject) => {
+      this.http.delete(url).subscribe(res => { 
+      resolve(res);
+        }, error => { 
+          reject(error);
+        });
+    }) 
+  }
+
+  actualizarDatos(data: any, id: string){
+    //let  url = 'https://apiserroya.herokuapp.com/api/persona';
+    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id;
+    return new Promise((resolve, reject) => {
+      this.http.put(url,data).subscribe(res => { 
+      resolve(res);
+        }, error => { 
+          reject(error);
+        });
+    })
+  }
+
   crearCuenta(data: any){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona';
     let  url = 'https://api-roya.herokuapp.com/api/persona';
