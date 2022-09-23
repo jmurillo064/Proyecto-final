@@ -14,7 +14,7 @@
               <ion-content>
                 <ion-list>
                   <ion-item href="procesamiento"> <ion-icon name="images-outline" style="padding: 20px;"></ion-icon>   Procesar datos</ion-item>
-                  <ion-item *ngIf=" datosUsario['rol'] == 'administrador'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Administrador</ion-item>
+                  <ion-item href="reportes-admin" *ngIf=" datosUsario['rol'] == 'administrador'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Administrador</ion-item>
                   <ion-item *ngIf=" datosUsario['rol'] == 'usuario'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Usuario</ion-item>
                   <ion-item href="administrar-usuarios" *ngIf=" datosUsario['rol'] == 'administrador'"> <ion-icon name="people-outline" style="padding: 20px;"></ion-icon>   Administrar usuarios </ion-item>
                   <ion-item href="ayuda"> <ion-icon name="information-circle-outline" style="padding: 20px;"></ion-icon>   Ayuda </ion-item>

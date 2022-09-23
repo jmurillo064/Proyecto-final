@@ -46,6 +46,16 @@ const routes: Routes = [
   {
     path: 'resultado',
     loadChildren: () => import('./pages/resultado/resultado.module').then( m => m.ResultadoPageModule)
+  },
+  {
+    path: 'reportes-admin',
+    loadChildren: () => import('./pages/reportes-admin/reportes-admin.module').then( m => m.ReportesAdminPageModule),
+    canActivate: [AutoLoginGuard]
+  },
+  {
+    path: 'reportes-user',
+    loadChildren: () => import('./pages/reportes-user/reportes-user.module').then( m => m.ReportesUserPageModule),
+    canActivate: [AutoLoginGuard]
   }
 ];
 

@@ -66,6 +66,7 @@ export class ProcesamientoPage implements OnInit {
     const image = await Camera.getPhoto({
       quality: 100,
       width: 400,
+      height: 400, 
       allowEditing: false,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Prompt
