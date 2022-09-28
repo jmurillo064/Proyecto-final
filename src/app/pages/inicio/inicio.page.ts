@@ -12,7 +12,9 @@ export class InicioPage implements OnInit {
 
   nombre = ".\assets\icon\infectada.jpg";
   datosUsario = JSON.parse(localStorage.getItem('sesionlogin'));
-
+  user = this.datosUsario['usuario'];
+  rol = this.datosUsario['rol'];
+  date: Date = new Date();
 
   constructor(
     private menu: MenuController,
@@ -35,6 +37,7 @@ export class InicioPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.datosUsario);
   }
 
   //salir

@@ -21,16 +21,41 @@ ion-item{
     text-align: center;
     justify-content: center;
     display: flex;
-
-    ion-img{
-        height: 50%;
-        width: 50%;
-        padding: 20px;
-        border-radius: 10px;
+    .dc2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ion-card{
+            align-items: center; 
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            width: 50% !important;
+            height: 50% !important;
+            margin: 0 !important;
+            ion-img{
+                height: 50%;
+                width: 50%;
+                padding: 20px;
+                border-radius: 10px;
+            }
+        }
     }
 }
 
 #resultado{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+    ion-item{
+        width: 60%;
+    }
+}
+
+#resultado2{
     align-content: center;
     align-items: center;
     text-align: center;

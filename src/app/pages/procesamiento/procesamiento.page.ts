@@ -102,13 +102,13 @@ async procesarImg(){
   }else{
     let dataToSend = {
       base64img:this.nombre,
-      Altura_planta:this.altura_planta,
-      Numero_ramas:this.numero_ramas,
-      Nivel_produccion:this.nivel_produccion,
-      Plagas:this.plagas,
-      Nivel_plagas:this.nivel_plagas,
-      Nivel_otras_enfermedades:this.nivel_otras_enfermedades,
-      Produccion_gramos:this.produccion_gramos
+      Altura_planta: parseFloat(this.altura_planta),
+          Numero_ramas: +this.numero_ramas,
+          Nivel_produccion: +this.nivel_produccion,
+          Plagas: +this.plagas,
+          Nivel_plagas: +this.nivel_plagas,
+          Nivel_otras_enfermedades: +this.nivel_otras_enfermedades,
+          Produccion_gramos: parseFloat(this.produccion_gramos)
     }
     console.log(this.altura_planta);
     console.log(this.numero_ramas);
@@ -132,7 +132,15 @@ async procesarImg(){
         let resultado = {
           estado: data['Descripción'],
           nivel: data['Nivel'],
-          imgB64: this.nombre
+          Nombre_Imagen: data['Nombre'],
+          imgB64: this.nombre,
+          Altura_planta: this.altura_planta,
+          Numero_ramas: this.numero_ramas,
+          Nivel_produccion: this.nivel_produccion,
+          Plagas: this.plagas,
+          Nivel_plagas: this.nivel_plagas,
+          Nivel_otras_enfermedades: this.nivel_otras_enfermedades,
+          Produccion_gramos: this.produccion_gramos
         }
       this.datosImagenService.senObjectSource(resultado);
 

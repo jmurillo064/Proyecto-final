@@ -13,6 +13,11 @@
     height: 100%;
     width: 100%;
 }
+.dc2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 input[type="file"] {
     display: none;
@@ -36,4 +41,14 @@ input[type="file"] {
 .ioi{
     border-bottom: solid;
     border-color: #3880ff;
+}
+
+ion-card{
+    align-items: center; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 50% !important;
+    height: 50% !important;
+    margin: 0 !important;
 }

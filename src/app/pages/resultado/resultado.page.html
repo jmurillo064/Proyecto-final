@@ -6,13 +6,27 @@
 
 <ion-content>
   <div id="divImg">
-    <ion-img *ngIf="imgURL" [src]="imgURL" alt="imgURL"></ion-img>
+    <!-- <ion-img *ngIf="imgURL" [src]="imgURL" alt="imgURL"></ion-img> -->
+    <div class="dc2">
+      <ion-card *ngIf="imgURL" >
+        <ion-card-content>
+          <img [src]="imgURL">
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
   <div id="resultado">
     <ion-item>
-      <ion-label>ESTADO:</ion-label>
-      <ion-note *ngIf="estado == 'SANA'" color="success" slot="end">{{estado}}</ion-note>
-      <ion-note *ngIf="estado == 'ENFERMA'" color="danger" slot="end">{{estado}}</ion-note>
+      <ion-label>Estado:</ion-label>
+      <ion-note *ngIf="presencia_Roya == 'SANA'" color="success" slot="end">{{presencia_Roya}}</ion-note>
+      <ion-note *ngIf="presencia_Roya == 'ENFERMA'" color="danger" slot="end">{{presencia_Roya}}</ion-note>
+    </ion-item>
+  </div>
+  <div id="resultado2">
+    <ion-item >
+      <ion-label>Nivel:</ion-label>
+      <ion-note *ngIf="nivel_Roya == 0" color="success" slot="end">{{nivel_Roya}}</ion-note>
+      <ion-note *ngIf="nivel_Roya != 0" color="danger"  slot="end">{{nivel_Roya}}</ion-note>
     </ion-item>
   </div>
   <div id="boton">

@@ -20,4 +20,27 @@ export class RoyaService {
         });
     })
   }
+
+  guardarRegistros(data: any){
+    let  url = 'https://api-roya.herokuapp.com/api/registro';
+    var formData = new FormData();
+    formData.append('datoImagen',data.datoImagen);
+    formData.append('alturaPlanta',data.alturaPlanta);
+    formData.append('numeroRamas',data.numeroRamas);
+    formData.append('nivelProduccion',data.nivelProduccion);
+    formData.append('poseePlagas',data.poseePlagas);
+    formData.append('nivelPlagas',data.nivelPlagas);
+    formData.append('nivelOtrasEnfermedades',data.nivelOtrasEnfermedades);
+    formData.append('produccionGramos',data.produccionGramos);
+    formData.append('presenciaRoya',data.presenciaRoya);
+    formData.append('nivelRoya',data.nivelRoya);
+    formData.append('idPersona',data.idPersona);
+    return new Promise((resolve, reject) => {
+      this.http.post(url, formData).subscribe(res => { 
+      resolve(res);
+        }, error => { 
+          reject(error);
+        });
+    })
+  }
 }
