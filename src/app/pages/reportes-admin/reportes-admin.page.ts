@@ -72,6 +72,33 @@ export class ReportesAdminPage implements OnInit {
         });
     }
 
+    // grafico(){
+    //     const ctx = document.getElementById('chart');
+    //     this.miGrafico = new Chart(ctx, {
+    //         type: 'bubble',
+    //         data: {
+    //             datasets: [{
+    //                 label: 'I love you',
+    //                 data: [{x: 0, y: 2},{x: 1, y: 3},{x: 1, y: 1},
+    //                     {x: 2, y: 0},{x: 2, y: 2},{x: 3, y: 3},
+    //                     {x: 3, y: 1},{x: 4, y: 2},],
+    //                 backgroundColor: 'rgb(255, 99, 132)'
+    //             }]
+    //         },
+    //         options: {
+    //             scales: {
+    //                 y: {
+    //                     beginAtZero: true
+    //                 }, 
+    //             },
+    //             title: {
+    //                 display: true,
+    //                 text: 'Niveles de Roya',
+    //             }
+    //         }
+    //     });
+    // }
+
     graficoCirculo(){
         const ctx = document.getElementById('chartCirculo');
         //const sinRoya = this.arrayRegistros.filter(m => m.presenciaRoya == 0);
