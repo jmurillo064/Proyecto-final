@@ -43,4 +43,17 @@ export class RoyaService {
         });
     })
   }
+
+  traerRegistros(){
+    let  url = 'https://api-roya.herokuapp.com/api/registro';
+      return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe(res => { 
+      resolve(res);
+        }, error => { 
+          reject(error);
+        });
+    }) 
+  }
+
+
 }

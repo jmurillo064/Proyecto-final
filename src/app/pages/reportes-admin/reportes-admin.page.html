@@ -1,17 +1,42 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Reportes Administrador</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/inicio" icon="arrow-back-outline" color="light"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="chart"></canvas>
-  </div>
-  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="chartCirculo"></canvas>
-  </div>
-</ion-content>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Reportes Administrador</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/inicio" icon="arrow-back-outline" color="light"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [scrollEvents]="true">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+            <canvas id="chart" height="300"></canvas>
+          </div>
+        </ion-col>
+        
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+            <canvas id="chartCirculo" height="300"></canvas>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <div>
+      <div>
+        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+          <canvas id="chart" height="300"></canvas>
+        </div>
+      </div>
+      <div>
+        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+          <canvas id="chartCirculo" height="300"></canvas>
+      </div>
+      </div>
+    </div> -->
+  </ion-content>
+
