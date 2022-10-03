@@ -93,6 +93,20 @@ export class ProcesamientoPage implements OnInit {
 
   }
 
+borrarDatos(){
+  //borrar datos
+  this.imgURL = null;
+  this.nombre = null;
+  this.altura_planta = null;
+  this.numero_ramas = null;
+  this.nivel_produccion = null;
+  this.plagas = null;
+  this.nivel_plagas = null;
+  this.nivel_otras_enfermedades = null;
+  this.produccion_gramos = null;
+  this.photo = null;
+}
+
 //procesar imagen
 async procesarImg(){
   if(this.nombre == undefined || this.nombre == "" || this.altura_planta == undefined || this.altura_planta == ""
@@ -110,6 +124,7 @@ async procesarImg(){
           Nivel_otras_enfermedades: +this.nivel_otras_enfermedades,
           Produccion_gramos: parseFloat(this.produccion_gramos)
     }
+
     console.log(this.altura_planta);
     console.log(this.numero_ramas);
     console.log(this.nivel_produccion);
@@ -117,6 +132,7 @@ async procesarImg(){
     console.log(this.nivel_plagas);
     console.log(this.nivel_otras_enfermedades);
     console.log(this.produccion_gramos);
+
     const loading = await this.loadingCtrl.create({
     message: 'Procesando datos...',
     });
@@ -143,6 +159,7 @@ async procesarImg(){
           Produccion_gramos: this.produccion_gramos
         }
       this.datosImagenService.senObjectSource(resultado);
+      this.borrarDatos();
 
       if(data['Descripción']==='SANA'){
         color='success';
@@ -152,6 +169,7 @@ async procesarImg(){
         this.router.navigate(['resultado']);
       }
       this.mensaje('El estado de la imagen es: '+data['Descripción'], color);
+
     }else{
       this.mensaje("Hubo muchos errores",'warning');
     }

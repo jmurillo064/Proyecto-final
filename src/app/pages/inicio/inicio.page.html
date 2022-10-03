@@ -15,7 +15,7 @@
                 <ion-list>
                   <ion-item href="procesamiento"> <ion-icon name="images-outline" style="padding: 20px;"></ion-icon>   Procesar datos</ion-item>
                   <ion-item href="reportes-admin" *ngIf=" datosUsario['rol'] == 'administrador'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Administrador</ion-item>
-                  <ion-item *ngIf=" datosUsario['rol'] == 'usuario'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Usuario</ion-item>
+                  <ion-item href="reportes-user" *ngIf=" datosUsario['rol'] == 'usuario'" > <ion-icon name="bar-chart-outline" style="padding: 20px;"></ion-icon>   Reportes Usuario</ion-item>
                   <ion-item href="administrar-usuarios" *ngIf=" datosUsario['rol'] == 'administrador'"> <ion-icon name="people-outline" style="padding: 20px;"></ion-icon>   Administrar usuarios </ion-item>
                   <ion-item href="ayuda"> <ion-icon name="information-circle-outline" style="padding: 20px;"></ion-icon>   Ayuda </ion-item>
                   <ion-item (click)="exit()"> <ion-icon name="arrow-undo-circle-outline" style="padding: 20px;"></ion-icon>   Salir</ion-item>
@@ -102,7 +102,7 @@
                     </ion-col>
                   </ion-row>
                 </ion-grid>
-                <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
+                <!-- <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
                   <ion-fab-button>
                     <ion-icon name="settings"></ion-icon>
                   </ion-fab-button>
@@ -110,7 +110,7 @@
                     <ion-fab-button href="procesamiento"><ion-icon name="images-outline" color="primary"></ion-icon></ion-fab-button>
                     <ion-fab-button><ion-icon name="bar-chart-outline" color="primary"></ion-icon></ion-fab-button>
                   </ion-fab-list>
-                </ion-fab>
+                </ion-fab> -->
               </ion-content>
             </div>
           </ion-app>

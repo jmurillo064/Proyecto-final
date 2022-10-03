@@ -56,7 +56,7 @@ export class RoyaService {
   }
 
   traerRegistrosUsuario(id){
-    let  url = 'https://api-roya.herokuapp.com/api/registro'+id;
+    let  url = 'https://api-roya.herokuapp.com/api/registro/'+id;
       return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(res => { 
       resolve(res);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -9,7 +10,9 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private personService: PersonaService, public toastController: ToastController) { }
+  constructor(private personService: PersonaService, 
+    public toastController: ToastController,
+    public router: Router) { }
 
   ngOnInit() {
   }
@@ -45,30 +48,39 @@ export class RegistroPage implements OnInit {
         this.mensaje("Hay campos vacíos!!!",'warning');
     }else{
       if(this.password == this.password2){
-        let array = {
-          "nombre":this.nombre,
-          "apellido":this.apellido,
-          "password":this.password,
-          "usuario":this.usuario,
-          "celular":this.celular,
-          "correo":this.correo,
-          "pais":this.pais,
-          "ciudad":this.ciudad,
-          "activo":this.activo,
-          "tutorial":this.tutorial,
-          "idRoles":this.idRoles
-        }
-        this.personService.crearCuenta(array).then(data => {
-          if(data['code']==406){
-            this.mensaje(data['mensaje'],'danger');
+        if(this.validarEmail(this.correo)==true){
+          if(this.validarTelefono(this.celular)==true){
+            let array = {
+              "nombre":this.nombre,
+              "apellido":this.apellido,
+              "password":this.password,
+              "usuario":this.usuario,
+              "celular":this.celular,
+              "correo":this.correo,
+              "pais":this.pais,
+              "ciudad":this.ciudad,
+              "activo":this.activo,
+              "tutorial":this.tutorial,
+              "idRoles":this.idRoles
+            }
+            this.personService.crearCuenta(array).then(data => {
+              if(data['code']==406){
+                this.mensaje(data['mensaje'],'danger');
+              }else{
+                this.router.navigate(['resultado']);
+                this.mensaje(data['mensaje'],'success');
+                this.borrar();
+              }
+              console.log(data);
+            }).catch(error =>{
+              console.log(error);
+            });
           }else{
-            this.mensaje(data['mensaje'],'success');
-            this.borrar();
+            this.mensaje("Número telefónico no válido!!!",'warning');
           }
-          console.log(data);
-        }).catch(error =>{
-          console.log(error);
-        });
+        }else{
+          this.mensaje("Correo no válido!!!",'warning');
+        }
       }else{
         this.mensaje("Las contraseñas no coinciden!!!",'warning');
       }
@@ -79,6 +91,7 @@ export class RegistroPage implements OnInit {
     this.nombre="";
     this.apellido="";
     this.password="";
+    this.password2="";
     this.usuario="";
     this.celular="";
     this.correo="";
@@ -93,5 +106,21 @@ export class RegistroPage implements OnInit {
       color: cl
     });
     toast.present();
+  }
+
+  validarEmail(valor) {
+    if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  validarTelefono(valor){
+    if(/^[09][0-9]{1,9}$/i.test(valor)){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
