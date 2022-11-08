@@ -1,9 +1,179 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ayuda</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content center>
+  <ion-content>
+    <ion-app>
+      <div class="ion-page" id="content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Ayuda</ion-title>
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/inicio" icon="arrow-back-outline" color="light"></ion-back-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div>
+                    <ion-card>
+                      <ion-card-header >
+                        <ion-card-title>Pasos para predecir</ion-card-title>
+                      </ion-card-header>
+                        <ion-card>
+                          <ion-label>
+                            <div style="position: center; align-content: center; text-justify: center; display:flex;">
+                              <swiper pager="true" [initialSlide]="0" [slidesPerView]="1" [autoplay]="true" [loop]="true" #slideWithNav>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps1.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 1: ir a Procesar datos </ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps2.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 2: subir o tomar una foto </ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps3.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 3: llenar los datos de características</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps4.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 4: seleccionar PROCESAR DATOS</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps5.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 5: observar el resultado</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\ps6.jpg" alt="" style="height:270px; border-radius: 1rem !important; ">
+                                    <br>
+                                    <ion-label> Paso 6: seleccionar GUARDAR </ion-label>
+                                  </div>
+                                </ng-template>
+                              </swiper>
+                            </div>
+                          </ion-label>
+                        </ion-card>
+                      <ion-card-content>
+                        <ion-card-subtitle>← Siga las instrucciones deslizando →</ion-card-subtitle>
+                      </ion-card-content>
+                    </ion-card>
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <ion-card>
+                      <ion-card-header >
+                        <ion-card-title>Datos necesarios</ion-card-title>
+                      </ion-card-header>
+                        <ion-card>
+                          <ion-label>
+                            <div style="position: center; align-content: center; text-justify: center; display:flex;">
+                              <swiper pager="true" [initialSlide]="0" [slidesPerView]="1" [autoplay]="true" [loop]="true" #slideWithNav>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d1.jpg" alt="" style="height:200px; border-radius: 1rem !important; ">
+                                    <br><ion-label>1. Imagen</ion-label>
+                                    <br><ion-label>- Debe ser clara, directa y evitar confusión</ion-label>
+                                    <br><ion-label>- Debe ser tomada a unos 30 cm de distancia</ion-label>
+                                    <br><ion-label>- Subir una foto o tomarla de la cámara</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d2.jpg" alt="" style="height:200px; border-radius: 1rem !important; ">
+                                    <br><ion-label>2. Altura de la planta</ion-label>
+                                    <br><ion-label>- Unidad de medida: centímetros</ion-label>
+                                    <br><ion-label>- Define la longitud de la planta desde el suelo hasta la copa</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d3.jpg" alt="" style="height:200px; border-radius: 1rem !important;">
+                                    <br><ion-label>3. Número de ramas</ion-label>
+                                    <br><ion-label>- Unidad de medida: números</ion-label>
+                                    <br><ion-label>- Especifica el número de ramas de la planta</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d4.jpg" alt="" style="height:170px; border-radius: 1rem !important;">
+                                    <br><ion-label>4. Nivel de producción</ion-label>
+                                    <br><ion-label>- Unidad de medida: 0,1,2,3,4,5</ion-label>
+                                    <br><ion-label>- Establece una escala del 0 al 5 el nivel de 
+                                      producción de una planta, en donde 0 representa que la planta 
+                                      no produce y 5 el nivel más alto de producción</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d5.jpg" alt="" style="height:200px; border-radius: 1rem !important;">
+                                    <br><ion-label>5. Presencia de plagas</ion-label>
+                                    <br><ion-label>- Unidad de medida: Si/No</ion-label>
+                                    <br><ion-label>- Representa (de forma global) la presencia o 
+                                      no de plagas en una planta</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d6.jpg" alt="" style="height:170px; border-radius: 1rem !important;">
+                                    <br><ion-label>6. Nivel de plagas</ion-label>
+                                    <br><ion-label>- Unidad de medida: 0,1,2,3,4</ion-label>
+                                    <br><ion-label>- Define en una escala del 0 al 4 el nivel de 
+                                      afectación de plagas de una planta, en donde 0
+                                      representa la no presencia de plagas y 4 el nivel
+                                      más alto de afectación </ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d7.jpg" alt="" style="height:170px; border-radius: 1rem !important;">
+                                    <br><ion-label>7. Nivel de otras enfermedades</ion-label>
+                                    <br><ion-label>- Unidad de medida: 0,1,2</ion-label>
+                                    <br><ion-label>- Define en una escala del 0 al 2 el nivel de 
+                                      afectación de otras enfermedades de una planta,
+                                      en donde 0 representa la no presencia de otras 
+                                      enfermedades y 2 el nivel más alto de afectación</ion-label>
+                                  </div>
+                                </ng-template>
+                                <ng-template swiperSlide>
+                                  <div>
+                                    <img src=".\assets\imgs\d8.jpg" alt="" style="height:200px; border-radius: 1rem !important;">
+                                    <br><ion-label>8. Producción (gramos/planta)</ion-label>
+                                    <br><ion-label>- Unidad de medida: gramos</ion-label>
+                                    <br><ion-label>- Mide el peso total de todos los frutos producidos
+                                      por una planta durante toda su vida</ion-label>
+                                  </div>
+                                </ng-template>
+                              </swiper>
+                            </div>
+                          </ion-label>
+                        </ion-card>
+                      <ion-card-content>
+                        <ion-card-subtitle>← Revise mas información deslizando →</ion-card-subtitle>
+                      </ion-card-content>
+                    </ion-card>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-content>
+      </div>
+    </ion-app>
+  </ion-content>
 </ion-content>

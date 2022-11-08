@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AyudaPageRoutingModule } from './ayuda-routing.module';
 
 import { AyudaPage } from './ayuda.page';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AyudaPageRoutingModule
+    AyudaPageRoutingModule,
+    SwiperModule
   ],
   declarations: [AyudaPage]
 })

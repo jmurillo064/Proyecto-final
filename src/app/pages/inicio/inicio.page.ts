@@ -14,7 +14,7 @@ export class InicioPage implements OnInit {
   datosUsario = JSON.parse(localStorage.getItem('sesionlogin'));
   user = this.datosUsario['usuario'];
   rol = this.datosUsario['rol'];
-  date: Date = new Date();
+  date = new Date().toLocaleString();
 
   constructor(
     private menu: MenuController,

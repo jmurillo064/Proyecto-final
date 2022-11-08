@@ -67,7 +67,7 @@ export class RegistroPage implements OnInit {
               if(data['code']==406){
                 this.mensaje(data['mensaje'],'danger');
               }else{
-                this.router.navigate(['resultado']);
+                this.router.navigate(['login']);
                 this.mensaje(data['mensaje'],'success');
                 this.borrar();
               }
