@@ -43,6 +43,17 @@ export class PersonaService {
     }) 
   }
 
+  editarUsuariosTutorial(id: any){
+    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id+'/edit';
+      return new Promise((resolve, reject) => {
+      this.http.get(url).subscribe(res => { 
+      resolve(res);
+        }, error => { 
+          reject(error);
+        });
+    }) 
+  }
+
   actualizarDatos(data: any, id: string){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona';
     let  url = 'https://api-roya.herokuapp.com/api/persona/'+id;

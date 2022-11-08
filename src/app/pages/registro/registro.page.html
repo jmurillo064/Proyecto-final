@@ -8,43 +8,62 @@
 
 <ion-content>
   <div class="padre">
-    <ion-item>
-      <ion-label position="floating">Ingrese usuario: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input [(ngModel)]="usuario"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Ingrese nombres: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input [(ngModel)]="nombre"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Ingrese apellidos: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input [(ngModel)]="apellido"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" >Ingrese contraseña: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" >Repetir contraseña: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="password" [(ngModel)]="password2"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" >Ingrese Celular: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" [(ngModel)]="celular"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" >Ingrese Correo: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" [(ngModel)]="correo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating" >Ingrese País: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" [(ngModel)]="pais"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Ciudad: <ion-text color="danger">*</ion-text></ion-label>
-      <ion-input required type="text" [(ngModel)]="ciudad"></ion-input>
-    </ion-item>
-    <ion-button shape="round"  size="full" color="primary" (click)="crearUsuario()">Registro</ion-button>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Ingrese usuario: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input [(ngModel)]="usuario"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Ingrese nombres: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input [(ngModel)]="nombre"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Ingrese apellidos: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input [(ngModel)]="apellido"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" >Ingrese contraseña: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" >Repetir contraseña: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="password" [(ngModel)]="password2"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" >Ingrese Celular: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [(ngModel)]="celular"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" >Ingrese Correo: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating" >Ingrese País: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [(ngModel)]="pais"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label position="floating">Ciudad: <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input type="text" [(ngModel)]="ciudad"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-button style="padding-left: 25px; padding-right: 25px;" shape="round"  size="full" color="primary" (click)="crearUsuario()">Registro</ion-button>
+    
   </div>
   
 </ion-content>
