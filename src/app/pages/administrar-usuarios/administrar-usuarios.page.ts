@@ -20,6 +20,7 @@ export class AdministrarUsuariosPage implements OnInit {
   pais: any;
   ciudad: any;
   idRoles: any;
+  public results = this.arrayUsuarios;
 
   constructor(
     private personService: PersonaService,
@@ -31,9 +32,19 @@ export class AdministrarUsuariosPage implements OnInit {
     this.cargarUsuarios();
   }
 
+  handleChange(event){
+    const query = event.target.value.toLowerCase();
+    console.log(this.results);
+    //this.results = this.arrayUsuarios.filter(valor => valor.usuario == query);
+    this.results = this.arrayUsuarios.filter(d => d.usuario.toLowerCase().indexOf(query) > -1);
+    console.log(query);
+    console.log(this.results);
+  }
+
   cargarUsuarios(){
     this.personService.traerUsuarios().then(data=>{
       this.arrayUsuarios = data['data'];
+      this.results = this.arrayUsuarios;
       console.log(this.arrayUsuarios);
     }).catch(error =>{
       console.log(error);
@@ -61,9 +72,12 @@ export class AdministrarUsuariosPage implements OnInit {
   }
 
   eliminarId(id) {
-    this.confirmarEliminar(id);
+    this.confirmarEliminar(id, 0, 'DESHABILITAR USUARIO', '¿Deseas deshabilitar este usuario?', 'Deshabilitar');
   }
 
+  recuperarId(id) {
+    this.confirmarEliminar(id, 1, 'HABILITAR USUARIO', '¿Deseas habilitar este usuario?', 'Habilitar');
+  }
 
   //editar
   async presentAlertEditar(item) {
@@ -72,9 +86,9 @@ export class AdministrarUsuariosPage implements OnInit {
       //buttons: ['Editar','Cancelar'],
       inputs: [
         {
-          name: 'nombre',
-            type: 'text',
             label: 'Nombres',
+            name: 'nombre',
+            type: 'text',
             placeholder: 'Please enter nombre',
             value: this.nombreU
         },
@@ -129,6 +143,15 @@ export class AdministrarUsuariosPage implements OnInit {
       ],
       buttons:[
         {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          id: 'cancel-button',
+          handler: () => {
+            console.log('Confirm Cancel: blah');
+          }
+        },
+        {
           text: 'Editar',
           role: 'submit',
           handler: (alertData) => {
@@ -151,11 +174,11 @@ export class AdministrarUsuariosPage implements OnInit {
   }
 
   //eliminar
-  async confirmarEliminar(id) {
+  async confirmarEliminar(id, valor, hdr, mssg, txt) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'ELIMINAR USUARIO',
-      message: '¿Deseas eliminar este usuario?',
+      header: hdr,
+      message: mssg,
       buttons: [
         {
           text: 'Cancelar',
@@ -166,12 +189,16 @@ export class AdministrarUsuariosPage implements OnInit {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: 'Eliminar',
+          text: txt,
           id: 'confirm-button',
           handler: () => {
-            this.personService.borrarUsuariosLógico(id).then(data =>{
+            this.personService.borrarUsuariosLógico(id, valor).then(data =>{
               if(data['code']==200){
+                this.mensaje(data['mensaje'], "danger");
+                this.cargarUsuarios();
+              }else if(data['code']==202){
                 this.mensaje(data['mensaje'], "success");
+                this.cargarUsuarios();
               }else{
                 this.mensaje(data['mensaje'], "warning");
               }

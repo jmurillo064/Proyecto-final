@@ -32,8 +32,8 @@ export class PersonaService {
     }) 
   }
 
-  borrarUsuariosLógico(id: any){
-    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id;
+  borrarUsuariosLógico(id: any, valor: any){
+    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id+'/'+valor;
       return new Promise((resolve, reject) => {
       this.http.delete(url).subscribe(res => { 
       resolve(res);
