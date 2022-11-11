@@ -10,19 +10,20 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    //redirectTo: 'login',
+    redirectTo: 'tabs',
     pathMatch: 'full'
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
-    canActivate: [IntroGuard]
-  },
-  {
-    path: 'registro',
-    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule),
-    canActivate: [IntroGuard]
-  },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+  //   canActivate: [IntroGuard]
+  // },
+  // {
+  //   path: 'registro',
+  //   loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule),
+  //   canActivate: [IntroGuard]
+  // },
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule),
@@ -56,6 +57,16 @@ const routes: Routes = [
     path: 'reportes-user',
     loadChildren: () => import('./pages/reportes-user/reportes-user.module').then( m => m.ReportesUserPageModule),
     canActivate: [AutoLoginGuard]
+  },
+  {
+    path: 'recuperar-password',
+    loadChildren: () => import('./pages/recuperar-password/recuperar-password.module').then( m => m.RecuperarPasswordPageModule),
+    canActivate: [IntroGuard]
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+    canActivate: [IntroGuard]
   }
 ];
 

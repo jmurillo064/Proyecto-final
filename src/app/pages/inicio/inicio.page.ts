@@ -60,7 +60,7 @@ export class InicioPage implements OnInit {
           id: 'confirm-button',
           handler: () => {
             localStorage.removeItem('sesionlogin');
-            this.router.navigate(['login']);
+            this.router.navigate(['tabs']);
           }
         }
       ]

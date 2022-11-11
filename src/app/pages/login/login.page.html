@@ -44,14 +44,22 @@
           <div class="labeld">
             <form>
               <div>
-                <ion-item>
-                  <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
-                  <ion-input [(ngModel)]="usuario" type="text" placeholder="Ingrese usuario" name="user"></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
-                  <ion-input [(ngModel)]="pass" type="password" placeholder="Ingrese Contraseña" name="password"></ion-input>
-                </ion-item>
+                <ion-card>
+                  <ion-item>
+                    <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
+                    <ion-input [(ngModel)]="usuario" type="text" placeholder="Ingrese usuario" name="user"></ion-input>
+                  </ion-item>
+                  </ion-card>
+                    
+                  <ion-card>
+                  <ion-item>
+                    <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
+                    <ion-input [(ngModel)]="pass" type="password" placeholder="Ingrese Contraseña" name="password"></ion-input>
+                  </ion-item>
+                </ion-card>
+              </div>
+              <div class="labeld">
+                  <a style="color:#FF0000; opacity: 50%; padding-bottom: 20px;" href="recuperar-password">Olvidé mi contraseña</a> 
               </div>
                 <div class="labeld">
                   <ion-tab-button (click)="Inilogin()">
@@ -61,13 +69,13 @@
             </form>
           </div>
         </ion-row>
-        <ion-row>
+        <!-- <ion-row>
           <div class="labeld">
             <ion-label>Si no tienes una cuenta <br>
               <a href="registro">Registratre aquí</a> 
             </ion-label>
         </div>
-        </ion-row>
+        </ion-row> -->
       </ion-grid>
     </div>
   </div>
