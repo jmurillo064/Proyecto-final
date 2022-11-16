@@ -10,13 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegistroPage implements OnInit {
 
-  constructor(private personService: PersonaService, 
-    public toastController: ToastController,
-    public router: Router) { }
-
-  ngOnInit() {
-  }
-
+  
   nombre;
   apellido: any;
   password: any;
@@ -29,6 +23,42 @@ export class RegistroPage implements OnInit {
   activo = 1;
   tutorial = 1;
   idRoles = 1;
+
+  //para ver la contraseña
+  showPassword = false;
+  passwordToggleIcon  = 'eye';
+  //para ver la contraseña2
+  showPassword2 = false;
+  passwordToggleIcon2  = 'eye';
+
+  constructor(private personService: PersonaService, 
+    public toastController: ToastController,
+    public router: Router) { }
+
+  //para ver contraseña función
+  togglePassword():void {
+    this.showPassword = !this.showPassword;
+
+    if(this.passwordToggleIcon == 'eye'){
+      this.passwordToggleIcon = 'eye-off';
+    }else{
+      this.passwordToggleIcon = 'eye';
+    }
+  }
+
+  //para ver contraseña función
+  togglePassword2():void {
+    this.showPassword2 = !this.showPassword2;
+
+    if(this.passwordToggleIcon2 == 'eye'){
+      this.passwordToggleIcon2 = 'eye-off';
+    }else{
+      this.passwordToggleIcon2 = 'eye';
+    }
+  }
+
+  ngOnInit() {
+  }
 
   crearUsuario(){
     console.log("Nombre"+this.nombre);
@@ -67,7 +97,7 @@ export class RegistroPage implements OnInit {
               if(data['code']==406){
                 this.mensaje(data['mensaje'],'danger');
               }else{
-                this.router.navigate(['login']);
+                this.router.navigate(['tabs']);
                 this.mensaje(data['mensaje'],'success');
                 this.borrar();
               }

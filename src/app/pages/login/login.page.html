@@ -1,35 +1,8 @@
-
-<!-- <ion-content padding center text-center color="light">
-    <div class="padre">
-      <div  class="hijo">
-            <ion-col size="12">
-            <div>
-              <ion-title class="nombre">APP-ROYA</ion-title>
-            </div>
-            <div>
-              <ion-item>
-                <ion-label position="floating" > <ion-icon name="person" color="primary"></ion-icon> Ingrese Usuario</ion-label>
-                <ion-input [(ngModel)]="usuario" placeholder="Ingrese Usuario" type="user"></ion-input> 
-              </ion-item>
-              <ion-item style="margin-top: 5%;">
-                <ion-label position="floating" > <ion-icon name="key" color="primary"></ion-icon> Ingrese Contraseña</ion-label>
-                <ion-input [(ngModel)]="pass" placeholder="Ingrese Contraseña" type="password"></ion-input> 
-              </ion-item>
-            </div>
-            <div style="margin-top: 25%; margin-bottom: 10%">
-              <ion-button  shape="round"  size="full"  color="primary" (click)="Inilogin()">Login</ion-button>
-            </div>
-            <div style="margin-bottom: 10%;">
-              <ion-button shape="round"  size="full" color="light" Href="/registro" >Registro</ion-button>
-            </div>
-            
-              <div>
-                <ion-label color="primary">¿Olvidaste tu contraseña?</ion-label>
-              </div>
-            </ion-col>
-      </div>
-    </div>
-</ion-content> -->
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
   <div id="padre">
@@ -45,21 +18,24 @@
             <form>
               <div>
                 <ion-card>
-                  <ion-item>
-                    <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
-                    <ion-input [(ngModel)]="usuario" type="text" placeholder="Ingrese usuario" name="user"></ion-input>
-                  </ion-item>
+                    <ion-item>
+                      <ion-icon color="primary" name="person-outline" slot="start"></ion-icon>
+                      <ion-input [(ngModel)]="usuario" type="text" placeholder="Ingrese usuario" name="user"></ion-input>
+                    </ion-item>
                   </ion-card>
-                    
                   <ion-card>
-                  <ion-item>
-                    <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
-                    <ion-input [(ngModel)]="pass" type="password" placeholder="Ingrese Contraseña" name="password"></ion-input>
-                  </ion-item>
+                    <ion-item>
+                      <!-- <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
+                      <ion-input type="password" placeholder="Ingrese Contraseña" [(ngModel)]="pass" name="password"></ion-input> -->
+                      <ion-icon color="primary" name="lock-closed-outline" slot="start"></ion-icon>
+                      <ion-input name="password" [type]="showPassword ? 'text' : 'password' " placeholder="Ingrese contraseña" [(ngModel)]="pass"></ion-input>
+                      <ion-icon *ngIf="pass" color="medium" slot="end" [name]="passwordToggleIcon" (click)="togglePassword()"></ion-icon>
+                      <ion-icon *ngIf="!pass" slot="end"></ion-icon>
+                    </ion-item> 
                 </ion-card>
               </div>
-              <div class="labeld">
-                  <a style="color:#FF0000; opacity: 50%; padding-bottom: 20px;" href="recuperar-password">Olvidé mi contraseña</a> 
+              <div class="labeld2">
+                  <a  href="recuperar-password">Olvidé mi contraseña</a> 
               </div>
                 <div class="labeld">
                   <ion-tab-button (click)="Inilogin()">
@@ -69,13 +45,6 @@
             </form>
           </div>
         </ion-row>
-        <!-- <ion-row>
-          <div class="labeld">
-            <ion-label>Si no tienes una cuenta <br>
-              <a href="registro">Registratre aquí</a> 
-            </ion-label>
-        </div>
-        </ion-row> -->
       </ion-grid>
     </div>
   </div>

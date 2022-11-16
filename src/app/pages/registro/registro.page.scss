@@ -1,11 +1,57 @@
-.padre {
-    padding: 15px; 
-    padding-top: 5px;
+// .padre {
+//     padding: 15px; 
+//     padding-top: 5px;
     
+// }
+
+#padre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 100%;
+    // width: 100%;
+
+    .labeld{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        ion-tab-button{
+            //border-style: solid; 
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #3880ff;
+            color: white;
+            ion-label{
+                font-size: large;
+            }
+        }
+
+        .botom{
+            text-align: center; 
+            display: flex; 
+            justify-content: center; 
+            text-align: center; 
+            align-items: center;
+        }
+
+        ion-item{
+            border-bottom-style: solid; 
+            border-color: #3880ff;
+        }
+    }
+
+    ion-row{
+        padding: 30px;
+    }
 }
 
-ion-card{
-    border-radius: 15px; 
-    border: 1px solid #3880ff;
-}
+// ion-card{
+//     border-radius: 15px; 
+//     border: 1px solid #3880ff;
+// }
 

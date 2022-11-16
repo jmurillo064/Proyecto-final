@@ -10,8 +10,13 @@ import {Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  pass;
+  //para ingreso
+  pass = "";
   usuario;
+
+  //para ver la contraseña
+  showPassword = false;
+  passwordToggleIcon  = 'eye';
 
   account = {
     username: 'yajuve',
@@ -30,6 +35,17 @@ export class LoginPage implements OnInit {
     public alertController: AlertController, 
     private router: Router
     ) { }
+
+  //para ver contraseña función
+  togglePassword():void {
+    this.showPassword = !this.showPassword;
+
+    if(this.passwordToggleIcon == 'eye'){
+      this.passwordToggleIcon = 'eye-off';
+    }else{
+      this.passwordToggleIcon = 'eye';
+    }
+  }
 
   ngOnInit() {
   }
