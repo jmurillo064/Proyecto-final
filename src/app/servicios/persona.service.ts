@@ -10,7 +10,7 @@ export class PersonaService {
 
   accederlogin(nombre: string, pass: string){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona/'+nombre+'/'+pass+'';
-    let  url = 'https://api-roya.herokuapp.com/api/persona/'+nombre+'/'+pass+'';
+    let  url = 'https://approya.000webhostapp.com/api/persona/'+nombre+'/'+pass+'';
       return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(res => { 
       resolve(res);
@@ -22,7 +22,7 @@ export class PersonaService {
 
   traerUsuarios(){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona/'+nombre+'/'+pass+'';
-    let  url = 'https://api-roya.herokuapp.com/api/persona';
+    let  url = 'https://approya.000webhostapp.com/api/persona';
       return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(res => { 
       resolve(res);
@@ -33,7 +33,7 @@ export class PersonaService {
   }
 
   borrarUsuariosLógico(id: any, valor: any){
-    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id+'/'+valor;
+    let  url = 'https://approya.000webhostapp.com/api/persona/'+id+'/'+valor;
       return new Promise((resolve, reject) => {
       this.http.delete(url).subscribe(res => { 
       resolve(res);
@@ -44,7 +44,7 @@ export class PersonaService {
   }
 
   editarUsuariosTutorial(id: any){
-    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id+'/edit';
+    let  url = 'https://approya.000webhostapp.com/api/persona/'+id+'/edit';
       return new Promise((resolve, reject) => {
       this.http.get(url).subscribe(res => { 
       resolve(res);
@@ -56,7 +56,7 @@ export class PersonaService {
 
   actualizarDatos(data: any, id: string){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona';
-    let  url = 'https://api-roya.herokuapp.com/api/persona/'+id;
+    let  url = 'https://approya.000webhostapp.com/api/persona/'+id;
     return new Promise((resolve, reject) => {
       this.http.put(url,data).subscribe(res => { 
       resolve(res);
@@ -68,7 +68,7 @@ export class PersonaService {
 
   crearCuenta(data: any){
     //let  url = 'https://apiserroya.herokuapp.com/api/persona';
-    let  url = 'https://api-roya.herokuapp.com/api/persona';
+    let  url = 'https://approya.000webhostapp.com/api/persona';
     var formData = new FormData(); 
     formData.append('nombre',data.nombre);
     formData.append('apellido',data.apellido);
