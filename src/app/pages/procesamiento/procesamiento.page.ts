@@ -1,19 +1,25 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { Capacitor } from '@capacitor/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController, Platform, ToastController } from '@ionic/angular';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { RoyaService } from 'src/app/servicios/roya.service';
 import { DatosImagenService } from 'src/app/servicios/datos-imagen.service';
 import { Router } from '@angular/router';
+//import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Filesystem } from '@capacitor/filesystem';
+import { ImageResizer, ImageResizerOptions } from '@awesome-cordova-plugins/image-resizer/ngx';
 
-
+export interface UserPhoto {
+  filepath: string;
+  webviewPath: string;
+}
 
 @Component({
   selector: 'app-procesamiento',
   templateUrl: './procesamiento.page.html',
   styleUrls: ['./procesamiento.page.scss'],
 })
+
 
 export class ProcesamientoPage implements OnInit {
 
@@ -26,72 +32,92 @@ export class ProcesamientoPage implements OnInit {
   nivel_plagas: any;
   nivel_otras_enfermedades: any;
   produccion_gramos: any;
+  photo: any
 
-  @ViewChild('filePicker', { static: false }) filePickerRef: ElementRef<HTMLInputElement>;
-  @ViewChild('popover') popover;
-  photo: SafeResourceUrl;
-  isDesktop: boolean;
-  isOpen = false;
+  //interface
+  public photos: UserPhoto;
 
   constructor(
-    private platform: Platform,
-    private sanitizer: DomSanitizer,
     private royaService: RoyaService,
     private loadingCtrl: LoadingController,
     public alertController: AlertController, 
     public toastController: ToastController,
     private datosImagenService: DatosImagenService,
-    public router: Router
+    public router: Router,
+    //private camera: Camera,
+    private sanitizer: DomSanitizer,
+    private plt: Platform,
+    //private imageResizer: ImageResizer
     ) { }
 
-    presentPopover(e: Event) {
-      this.popover.event = e;
-      this.isOpen = true;
-    }
-
   ngOnInit() {
-    if ((this.platform.is('mobile') && this.platform.is('hybrid')) || this.platform.is('desktop')) {
-      this.isDesktop = true;
-    }
   }
 
-  
+  // private imageCompressor(base64ImageString: string) {
+  //   // this function handles the operation to resize the image from it's original properties
+  //   // this function returns base64 string of the resized image
+  //   console.log('Image base64 ' + base64ImageString);
+
+  //   let options = {
+  //     uri: base64ImageString,
+  //     quality: 100,
+  //     width: 600,
+  //     height: 600,
+  //     base64: true
+  //   } as ImageResizerOptions;
+
+    
+  //     this.imageResizer.resize(options)
+  //     .then((info) => console.log(info))
+  //     .catch(e => console.log(e));
+  // }
 
   async getPicture() {
-    if (!Capacitor.isPluginAvailable('Camera')) {
-      this.filePickerRef.nativeElement.click();
-      return;
-    }
-
-    const image = await Camera.getPhoto({
-      quality: 100,
-      width: 400,
-      height: 400, 
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Prompt
+    const capturedPhoto = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Prompt,
+      quality: 50,
+      height: 400,
     });
-      let im = image['dataUrl'];
-      this.nombre = im.replace('data:image/jpeg;base64,','');
-    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
+
+    console.log(capturedPhoto.webPath);
+    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(capturedPhoto && (capturedPhoto.webPath));
+    this.saveImage(capturedPhoto);
   }
 
-  onFileChoose(event: Event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    const pattern = /image-*/;
-    const reader = new FileReader();
+  async saveImage(photo: Photo) {
+    const base64Data = await this.readAsBase64(photo);
+    this.nombre = base64Data.replace('data:image/jpeg;base64,','');
+    console.log(this.nombre);
+    
+}
 
-    if (!file.type.match(pattern)) {
-      console.log('File format not supported');
-      return;
-    }
+private async readAsBase64(photo: Photo) {
+  if (this.plt.is('hybrid')) {
+      const file = await Filesystem.readFile({
+          path: photo.path
+      });
 
+      return file.data;
+  }
+  else {
+      // Fetch the photo, read as a blob, then convert to base64 format
+      const response = await fetch(photo.webPath);
+      const blob = await response.blob();
+
+      return await this.convertBlobToBase64(blob) as string;
+  }
+}
+
+
+  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader;
+    reader.onerror = reject;
     reader.onload = () => {
-      this.photo = reader.result.toString();
+        resolve(reader.result);
     };
-    reader.readAsDataURL(file);
-
-  }
+    reader.readAsDataURL(blob);
+});
 
 borrarDatos(){
   //borrar datos

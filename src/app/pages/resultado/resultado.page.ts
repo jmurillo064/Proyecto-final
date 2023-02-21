@@ -40,10 +40,16 @@ export class ResultadoPage implements OnInit {
       this.presencia_Roya = data['estado'];
       if(data['estado']=='SANA'){
         this.presencia_Roya_Enviar = 0;
+        this.nivel_Roya = 0;
       }else{
         this.presencia_Roya_Enviar = 1;
+        if(data['nivel'] == 0){
+          this.nivel_Roya = 1;
+        }else{
+          this.nivel_Roya = data['nivel'];
+        }
       }
-      this.nivel_Roya = data['nivel'];
+      //this.nivel_Roya = data['nivel'];
       this.dato_Imagen = data['Nombre_Imagen'];
       this.altura_Planta = data['Altura_planta'];
       this.numero_Ramas = data['Numero_ramas'];

@@ -55,7 +55,7 @@
                 <div class="dc2">
                   <ion-card *ngIf="photo" >
                     <ion-card-content>
-                      <img [src]="photo">
+                      <img id="img" [src]="photo">
                     </ion-card-content>
                   </ion-card>
                 </div>
@@ -70,7 +70,6 @@
                     <ion-icon name="camera" slot="start"></ion-icon>
                     <ion-label>Subir foto</ion-label>
                   </ion-button>
-                  <input type="file" *ngIf="isDesktop" #filePicker (change)="onFileChoose($event)"/>
                 </div>
               </div>
             </ion-col>
@@ -82,12 +81,6 @@
                   <!-- <ion-icon (click)="presentPopover($event)" color="primary" name="information-circle-outline"></ion-icon> -->
                   <ion-label> Altura de la planta: </ion-label>
                   <ion-input  [(ngModel)]="altura_planta" type="text" placeholder="en centímetros"></ion-input>
-                  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
-                    <ng-template>
-                      <ion-content class="ion-padding">Hello World!</ion-content>
-                    </ng-template>
-                  </ion-popover>
-                  
                 </ion-item>
               </div>
             </ion-col>
